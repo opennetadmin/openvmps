@@ -18,12 +18,14 @@ Install
   * Click the install icon for the plugin which should be listed by the plugin name 
   * Follow any instructions it prompts you with.
   * Create a file on your OpenVMPS server that contains the following:
-    #!/bin/bash
-    PATH=$PATH:/opt/ona/bin
-    while true; do
+
+        #!/bin/bash
+        PATH=$PATH:/opt/ona/bin
+        while true; do
             read DOMAIN CLIENTIP PORT VLAN MAC
             dcm.pl -r openvmps_lookup mac=$MAC domain=$DOMAIN clientip=$CLIENTIP port=$PORT vlan=$VLAN update
-    done
+        done
+    
     * The update flag is an optional parameter, add or remove it as desired
     * In this example we are creating the following file: `/opt/ona/bin/openvmps_external`
 
